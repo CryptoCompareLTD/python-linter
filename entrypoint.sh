@@ -21,22 +21,22 @@ echo "Running black"
 if [ "$7" ]; then
   if [ "$2" = "high" ]; then
     black "$1" ${5} --exclude "migrations" --check
-    echo "Running isort"
-    isort "$1" -m 3 --trailing-comma ${6} -c
+#     echo "Running isort"
+#     isort "$1" -m 3 --trailing-comma ${6} -c
     echo "Running pylint"
     pylint "$1" --load-plugins pylint_django ${4}
 
   elif [ "$2" = "medium" ]; then
     black "$1" ${5} --exclude "migrations" --check
-    echo "Running isort"
-    isort "$1" -m 3 --trailing-comma ${6} -c
+#     echo "Running isort"
+#     isort "$1" -m 3 --trailing-comma ${6} -c
     echo "Running pylint"
     pylint "$1" --load-plugins pylint_django --fail-under=8 ${4}
 
   else
     black "$1" ${5} --exclude "migrations" --check
-    echo "Running isort"
-    isort "$1" -m 3 --trailing-comma ${6} --diff
+#     echo "Running isort"
+#     isort "$1" -m 3 --trailing-comma ${6} --diff
     echo "Running pylint"
     pylint "$1" --load-plugins pylint_django --exit-zero ${4}
   fi
@@ -44,22 +44,22 @@ if [ "$7" ]; then
 else
   if [ "$2" = "high" ]; then
     black "$1" ${5} --check
-    echo "Running isort"
-    isort "$1" -m 3 --trailing-comma ${6} -c
+#     echo "Running isort"
+#     isort "$1" -m 3 --trailing-comma ${6} -c
     echo "Running pylint"
     pylint "$1" ${4}
 
   elif [ "$2" = "medium" ]; then
     black "$1" ${5} --check
-    echo "Running isort"
-    isort "$1" -m 3 --trailing-comma ${6} -c
+#     echo "Running isort"
+#     isort "$1" -m 3 --trailing-comma ${6} -c
     echo "Running pylint"
     pylint "$1" --fail-under=8 ${4}
 
   else
     black "$1" ${5} --check
-    echo "Running isort"
-    isort "$1" -m 3 --trailing-comma ${6} --diff
+#     echo "Running isort"
+#     isort "$1" -m 3 --trailing-comma ${6} --diff
     echo "Running pylint"
     pylint "$1" --exit-zero ${4}
   fi
